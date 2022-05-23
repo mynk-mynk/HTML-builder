@@ -14,7 +14,7 @@ fs.readdir(srcPath, { withFileTypes: true }, (err, list) => {
     for (let item of list) {
         if (item.isFile()) {
             const newPath = path.join(__dirname, 'files-copy', item.name);
-            fs.copyFile(path.join(srcPath, item.name), newPath, fs.constants.COPYFILE_EXCL, (err) => {
+            fs.copyFile(path.join(srcPath, item.name), newPath, (err) => {
                 if (err) throw 'File already exists';
             })
         }
